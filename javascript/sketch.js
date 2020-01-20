@@ -18,6 +18,7 @@ function setup() {
   
   function draw() {
     background(0);
+    stroke(255);
     for (let wall of walls) {
       wall.show();
     }
