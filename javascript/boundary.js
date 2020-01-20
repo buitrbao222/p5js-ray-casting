@@ -6,7 +6,6 @@ class Boundary {
 
   show() {
     push();
-    stroke(255);
     strokeWeight(4);
     line(this.a.x, this.a.y, this.b.x, this.b.y);
     pop();
