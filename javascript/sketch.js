@@ -23,6 +23,5 @@ function setup() {
       wall.show();
     }
     particle.update(mouseX, mouseY);
-    particle.show();
     particle.look(walls);
   }

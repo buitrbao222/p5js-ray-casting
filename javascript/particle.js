@@ -7,11 +7,6 @@ class Particle {
     }
   }
 
-  show() {
-    fill(255);
-    ellipse(this.pos.x, this.pos.y, 16);
-  }
-
   look(walls) {
     for (let ray of this.rays) {
       let closest = null;
