@@ -3,12 +3,10 @@ class Ray {
   constructor(pos, angle) {
     this.pos = pos;
     this.dir = p5.Vector.fromAngle(angle);
-  }
-
-  lookAt(x, y) {
-    this.dir.x = x - this.pos.x;
-    this.dir.y = y - this.pos.y;
-    this.dir.normalize();
+    this.range = 300;
+    this.end = createVector();
+    this.end.x = this.pos.x + this.dir.x * this.range;
+    this.end.y = this.pos.y + this.dir.y * this.range;
   }
 
   cast(wall) {
