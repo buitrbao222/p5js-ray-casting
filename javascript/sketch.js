@@ -4,14 +4,28 @@ let particle;
 function setup() {
   createCanvas(windowWidth, windowHeight);
 
-  // for (let i = 0; i < 5; i++) {
-  //   let x1 = random(width);
-  //   let x2 = random(width);
-  //   let y1 = random(height);
-  //   let y2 = random(height);
-  //   walls[i] = new Boundary(x1, y1, x2, y2);
-  // }
+  // Upper wall
+  walls.push(new Boundary(-2, -2, width + 2, -2));
 
+  // Right wall
+  walls.push(new Boundary(width + 2, -2, width + 2, height + 2));
+
+  // Lower wall
+  walls.push(new Boundary(width + 2, height + 2, -2, height + 2));
+
+  // Left wall
+  walls.push(new Boundary(-2, height + 2, -2, -2));
+
+  // Random walls
+  for (let i = 0; i < 5; i++) {
+    let x1 = random(width);
+    let x2 = random(width);
+    let y1 = random(height);
+    let y2 = random(height);
+    walls.push(new Boundary(x1, y1, x2, y2));
+  }
+
+  // Player
   particle = new Particle();
 }
 
@@ -30,25 +44,25 @@ function draw() {
   }
 }
 
-let p1;
+// let p1;
 
-function mousePressed() {
-  p1 = createVector(mouseX, mouseY);
-}
+// function mousePressed() {
+//   p1 = createVector(mouseX, mouseY);
+// }
 
-function mouseReleased() {
-  p2 = createVector(mouseX, mouseY);
-  walls.push(new Boundary(p1.x, p1.y, p2.x, p2.y));
-}
+// function mouseReleased() {
+//   p2 = createVector(mouseX, mouseY);
+//   walls.push(new Boundary(p1.x, p1.y, p2.x, p2.y));
+// }
 
-function drawArrow(base, vec) {
-  push();
-  strokeWeight(3);
-  translate(base.x, base.y);
-  line(0, 0, vec.x, vec.y);
-  rotate(vec.heading());
-  let arrowSize = 3;
-  translate(vec.mag() - arrowSize, 0);
-  triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);
-  pop();
-}
+// function drawArrow(base, vec) {
+//   push();
+//   strokeWeight(3);
+//   translate(base.x, base.y);
+//   line(0, 0, vec.x, vec.y);
+//   rotate(vec.heading());
+//   let arrowSize = 3;
+//   translate(vec.mag() - arrowSize, 0);
+//   triangle(0, arrowSize / 2, 0, -arrowSize / 2, arrowSize, 0);
+//   pop();
+// }
