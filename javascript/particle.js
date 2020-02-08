@@ -66,12 +66,8 @@ class Particle {
       if (this.inRange(wall)) {
         let offset = this.size / 2 - this.distance(wall);
         if (offset > epsilon) {
-
-          let AtoB = p5.Vector.sub(wall.b, wall.a);
-          let AtoP = p5.Vector.sub(this.pos, wall.a);
-          let angle = degrees(AtoB.angleBetween(AtoP));
-
-          if (angle > 0) {
+          let centerToPlayer = p5.Vector.sub(particle.pos, wall.center);
+          if (centerToPlayer.dot(wall.normal) >= 0) {
             this.pos.add(p5.Vector.mult(wall.normal, offset));
           }
           else {
